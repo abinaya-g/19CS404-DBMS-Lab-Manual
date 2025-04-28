@@ -51,16 +51,50 @@ Design a database for patient management, appointments, medical records, and bil
 University / Hospital (choose one)
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+
+![Workshop_Hospital](https://github.com/user-attachments/assets/546f1822-55e9-42e6-9751-f3395d4863a4)
 
 ## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
+Hospital:
+Attributes: Hospital_ID (Primary Key), Name, Contact_Details
+
+Doctors:
+Attributes: Doctor_ID (Primary Key), Name, Hospital_ID (Foreign Key)
+
+Patients:
+Attributes: ID (Primary Key), Name, Desc, Doctor_ID (Foreign Key)
+
+Appointment:
+Attributes: Appointment_ID (Primary Key), Date, Patient_ID (Foreign Key)
+
+Medical Record:
+Attributes: Report_No (Primary Key), Appointment_ID (Foreign Key), Dept
 ...
 
 ## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
+Contains (Hospital ↔ Doctors)
+
+Cardinality: 1 Hospital : N Doctors
+
+Participation: Total on Hospital (mandatory 1) and Partial on Doctors (a Doctor must belong to a Hospital)
+
+Treats (Doctors ↔ Patients)
+
+Cardinality: N Doctors : N Patients
+
+Participation: Partial for both (a Doctor may or may not treat many Patients; a Patient may be treated by multiple Doctors)
+
+Books (Patients ↔ Appointment)
+
+Cardinality: 1 Patient : N Appointments
+
+Participation: Total on Appointment (every Appointment must be booked by a Patient)
+
+Receives (Patients ↔ Medical Record)
+
+Cardinality: N Patients : N Medical Records
+
+Participation: Partial for both (a Patient may have multiple Medical Records, a Record must belong to a Patient)
 ...
 
 ## Extension (Prerequisite / Billing):
