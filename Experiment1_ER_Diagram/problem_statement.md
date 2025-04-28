@@ -47,8 +47,8 @@ Design a database for patient management, appointments, medical records, and bil
 
 # ER Diagram Submission: 
 
--Student Name: SHYAM S
--Student Register.No: 212223240156
+Student Name: SHYAM S  
+Student Register No: 212223240156
 
 ## Scenario Chosen:
 
