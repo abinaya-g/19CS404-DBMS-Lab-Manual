@@ -48,7 +48,8 @@ Design a database for patient management, appointments, medical records, and bil
 # ER Diagram Submission - Student Name
 
 ## Scenario Chosen:
-University / Hospital (choose one)
+
+### Hospital
 
 ## ER Diagram:
 
