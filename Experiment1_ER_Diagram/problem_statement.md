@@ -101,6 +101,25 @@ Participation: Partial for both (a Patient may have multiple Medical Records, a 
 - Explain how you modeled prerequisites or billing.
 
 ## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+Entities:
+Chose Hospital, Doctors, Patients, Appointment, and Medical Record to represent key parts of a healthcare system.
+
+Relationships:
+
+Hospital Contains Doctors (1:N) – A hospital has many doctors.
+
+Doctor Treats Patient (N:N) – Doctors can treat many patients, and patients can have many doctors.
+
+Patient Books Appointment (1:N) – A patient can book multiple appointments.
+
+Patient Receives Medical Record (N:N) – Patients receive multiple medical records linked to appointments.
+
+Assumptions:
+
+Each doctor works in one hospital.
+
+Each appointment is booked by one patient.
+
+Medical records are created only after an appointment.
 
 ## RESULT
