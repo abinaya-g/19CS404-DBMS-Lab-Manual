@@ -45,7 +45,10 @@ Design a database for patient management, appointments, medical records, and bil
    - Why you chose the entities and relationships.
    - How you modeled prerequisites or billing.
 
-# ER Diagram Submission - Student Name
+# ER Diagram Submission: 
+
+-Student Name: SHYAM S
+-Student Register.No: 212223240156
 
 ## Scenario Chosen:
 
@@ -98,7 +101,7 @@ Cardinality: N Patients : N Medical Records
 Participation: Partial for both (a Patient may have multiple Medical Records, a Record must belong to a Patient)
 ...
 
-## Extension (Prerequisite / Billing):
+## Extension (Billing):
 - Explain how you modeled prerequisites or billing.
 
 ## Design Choices:
@@ -123,4 +126,5 @@ Each appointment is booked by one patient.
 
 Medical records are created only after an appointment.
 
-## RESULT
+## RESULT:
+Thus, this project effectively models a hospital management system through an ER diagram, clearly representing the relationships among hospitals, doctors, patients, appointments, and medical records.
