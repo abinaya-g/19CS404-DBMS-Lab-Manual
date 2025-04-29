@@ -45,28 +45,74 @@ Design a database for patient management, appointments, medical records, and bil
    - Why you chose the entities and relationships.
    - How you modeled prerequisites or billing.
 
-# ER Diagram Submission - Student Name
+# ER DIAGRAM SUBMISSION  
+## STUDENT NAME : DIVYASHREE G
+## REGISTER NUMBER : 212223060062
 
-## Scenario Chosen:
-University / Hospital (choose one)
+## SCENARIO CHOSEN:
+University ER Diagram
 
-## ER Diagram:
-![ER Diagram](er_diagram.png)
+## ER DIAGRAM :
 
-## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
-...
+![DIVYASHREE G 212223060062 DBMS-21 drawio (1)](https://github.com/user-attachments/assets/226c089d-facd-4ce4-8cc4-b46a0a5b2d34)
 
-## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
-...
 
-## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
+## ENTITIES AND ATTRIBUTES :
 
-## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+STUDENT - Name,Register Number, Email ID, Phone Number, DOB, Subjects Enrolled
 
-## RESULT
+DEPARTMENT - Department Name, DepartmentID
+
+PROGRAM - Program Name , Program Code , Subjects
+
+COURSE - Course Name , Course Code ,  Credits
+
+FACULTIES - Name, Faculty ID ,Subject
+
+UNIVERSITY - University Name, ID, Students & Faculties
+
+
+## RELATIONSHIP AND CONSTRAINTS :
+---
+
+### **IsIn (Student → Department)**  
+Cardinality: Many-to-One <br>  
+Participation: Total (Each student must belong to one department)
+
+---
+### **Provides (Department → Program)**  
+Cardinality: Many-to-Many <br>  
+Participation: Partial (A department may or may not offer multiple programs)
+
+---
+### **Contains (Program → Course)**  
+Cardinality: One-to-Many 
+
+Participation: Partial (A program may or may not contain courses)
+
+---
+### **Handles (Faculties → Course)**  
+Cardinality: Many-to-Many <br>  
+Participation: Partial (A faculty may or may not handle courses)
+
+---
+### **Has (University → Faculties)**  
+Cardinality: One-to-Many <br>  
+Participation: Total (Each university has faculties)
+---
+### Relationship (University → Student)  
+Cardinality: One-to-Many <br>  
+Participation: Total (Each university has students)
+
+## EXTENSION :
+To model prerequisites, we can add a recursive relationship on the Course entity called "Prerequisite", where one course can be a prerequisite for another. This would be a one-to-many relationship (one course can be a prerequisite for many other courses), and participation would typically be partial, as not all courses have prerequisites.
+
+For billing, a new entity called "Billing" can be introduced, linked to the Student entity through a "Pays" relationship. The Billing entity would include attributes such as billing ID, amount, due date, and payment status. This relationship would be one-to-many, where one student can have multiple billing records, and participation from the student side could be total, assuming all students must pay fees.
+
+These extensions maintain normalization while supporting additional academic and financial requirements.
+
+## DESIGN CHOICES:
+The ER model includes key entities like Student, Department, Program, Course, Faculties, and University, each with relevant attributes to represent an academic system. Relationships such as IsIn, Provides, Contains, Handles, and Has reflect real-world connections between students, departments, programs, and faculty. Total participation is used where association is mandatory (e.g., students must belong to a department), and partial where optional. Many-to-many relationships allow flexibility, especially in course and faculty handling. These design choices ensure clarity, data consistency, and scalability
+
+## RESULT :
+Thus,the ER Diagram for University is successfully designed and entities,relationships and constraints were clearly represented.
