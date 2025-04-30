@@ -105,15 +105,24 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Create a table named Department with the following constraints:
+DepartmentID as INTEGER should be the primary key.
+DepartmentName as TEXT should be unique and not NULL.
+Location as TEXT.
 
 ```sql
--- Paste your SQL code below for Question 1
+CREATE TABLE Department(
+    DepartmentID INTEGER PRIMARY KEY,
+    DepartmentName TEXT UNIQUE NOT NULL,
+    Location TEXT
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/2e79062b-18c6-4eb1-b131-3ba4b0b8d6ad)
+
+![image](https://github.com/user-attachments/assets/39f61a82-5223-488c-b29e-736ad6e9d842)
 
 **Question 2**
 ---
