@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/2cd72489-deb1-47c6-b5e0-b902d895e16b)# Experiment 4: Aggregate Functions, Group By and Having Clause
+# Experiment 4: Aggregate Functions, Group By and Having Clause
 
 ## AIM
 To study and implement aggregate functions, GROUP BY, and HAVING clause with suitable examples.
@@ -44,6 +44,7 @@ Sample table:Insurance Table
 
 ![image](https://github.com/user-attachments/assets/a3c1b350-c27d-4a4e-b58c-5bfeac0ee015)
 
+Query :
 ```sql
 SELECT strftime('%Y',ValidityPeriod) AS "ValidityYear",COUNT(PatientID) AS "TotalPatients"
 FROM Insurance
@@ -63,6 +64,7 @@ Sample table : Prescriptions Table
 
 ![image](https://github.com/user-attachments/assets/46071368-20c3-4420-b379-685c8e30bebd)
 
+Query :
 ```sql
 SELECT Medication,Avg(Dosage) AS "AvgDosage"
 FROM Prescriptions
@@ -82,7 +84,7 @@ Sample table : Prescriptions Table
 
 ![image](https://github.com/user-attachments/assets/97f724ad-71d4-459b-a4de-35d5f57c5ff2)
 
-
+Query :
 ```sql
 SELECT PatientID,COUNT(Medication) AS "TotalMedications"
 FROM Prescriptions
@@ -102,6 +104,7 @@ Table: employee
 
 ![image](https://github.com/user-attachments/assets/1aaf76f2-374c-4a19-9da9-a62949f1ade4)
 
+Query :
 ```sql
 SELECT AVG(income) AS avg_income
 FROM employee
@@ -121,7 +124,7 @@ Table: employee
 
 ![image](https://github.com/user-attachments/assets/615ebbba-1883-46be-8740-8756d2a140d2)
 
-
+Query :
 ```sql
 SELECT MAX(AGE)-MIN(AGE) AS "age_difference"
 FROM employee;
@@ -140,6 +143,7 @@ Sample table: orders
 
 ![image](https://github.com/user-attachments/assets/555375b3-b668-40a8-b231-5e549aecd2cc)
 
+Query :
 ```sql
 SELECT COUNT(DISTINCT salesman_id) AS "COUNT"
 FROM orders;
@@ -158,6 +162,7 @@ Table: employee
 
 ![image](https://github.com/user-attachments/assets/06c4129e-153f-44d6-8666-0a177d96bfa5)
 
+Query :
 ```sql
 SELECT COUNT(id) AS "employees_count"
 FROM employee
@@ -176,6 +181,7 @@ Sample table: employee1
 
 ![image](https://github.com/user-attachments/assets/fd22bb7b-429c-45f4-9822-8958c9b609b3)
 
+Query :
 ```sql
 SELECT jdate,MIN(workhour) AS "MIN(workhour)"
 FROM employee1
@@ -195,6 +201,7 @@ Sample table: employee
 
 ![image](https://github.com/user-attachments/assets/2fb804bf-6c7d-425f-a627-f87619a0e6a4)
 
+Query :
 ```sql
 SELECT age,MIN(income) AS "MIN(income)"
 FROM employee
@@ -217,6 +224,7 @@ Sample table: employee1
 
 ![image](https://github.com/user-attachments/assets/49d16088-ec0f-4401-a1dc-2e252ae2259c)
 
+Query :
 ```sql
 SELECT occupation,MIN(workhour) AS "MIN(workhour)"
 FROM employee1
