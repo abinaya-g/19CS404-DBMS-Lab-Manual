@@ -45,28 +45,70 @@ Design a database for patient management, appointments, medical records, and bil
    - Why you chose the entities and relationships.
    - How you modeled prerequisites or billing.
 
-# ER Diagram Submission - Student Name
+# ER DIAGRAM SUBMISSION :
+---
+STUDENT NAME : DIVYASHREE G
 
-## Scenario Chosen:
-University / Hospital (choose one)
+REGISTER NUMBER : 212223060062
 
-## ER Diagram:
-![ER Diagram](er_diagram.png)
+## SCENARIO CHOSEN :
+ Hospital ER Diagram
 
-## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
+## ER DIAGRAM :
+
+![image](https://github.com/user-attachments/assets/b4c490a8-4dd3-42fd-b0ee-710dc0916f85)
+
+## ENTITIES & ATTRIBUTES :
+
+PATIENT - PATIENT ID, NAME, DOB, GENDER <br>
+DOCTOR - DOCTOR ID, NAME, SPECIALIZATION, PHONE NUMBER <br>
+DEPARTMENT - DEPT ID, NAME, DEPARTMENT HEAD <br>
+MEDICAL RECORD - MEDICAL RECORD ID, PATIENT MED. DETAILS, MEDICAL PRESCRIBED <br>
+APPOINTMENT - APPOINTMENT ID, REASON FOR VISIT, APPOINTMENT DATE & TIME <br>
+PAYMENT - BILL NUMBER, PAYMENT DATE, PAYMENT MODE
 ...
 
-## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
-...
+## RELATIONSHIPS & CONSTRAINTS :
+---
 
-## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
+Consults (Patient → Doctor)  <br>
+Cardinality: Many-to-Many <br>
+Participation: Partial <br>
 
-## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
 
-## RESULT
+Manages (Doctor → Department) <br>
+Cardinality: Many-to-Many <br> 
+Participation: Partial  <br>
+
+
+Handles (Department → Payment) <br>
+Cardinality: One-to-Many (One department can handle many payments)  <br>
+Participation: Partial  <br>
+
+
+Personal Data Is (Patient → Medical Record) <br>
+Cardinality: One-to-Many  <br>
+Participation: Total (Every medical record is linked to one patient)  <br>
+
+
+Derived From (Medical Record → Appointment) <br>
+Cardinality: Many-to-Many  <br>
+Participation: Partial  
+
+
+Cost of Consultation (Appointment → Payment) <br>
+Cardinality: Many-to-Many <br> 
+Participation: Partial  <br>
+
+---
+## EXTENSIONS (Pre-requisite/billing) :
+
+The billing process in the ER model is represented through the PAYMENT entity, which captures all necessary details related to a patient's financial transactions. This entity includes attributes such as Bill Number, Payment Date, and Payment Mode to store information about individual payment instances. The Cost of Consultation relationship between APPOINTMENT and PAYMENT is modeled as a many-to-many relationship, allowing flexibility for scenarios where a single appointment can involve multiple payments (e.g., part payments) or one payment can cover multiple appointments (e.g., bundled services). Additionally, the Handles relationship connects the DEPARTMENT entity to PAYMENT in a one-to-many manner, indicating that a department can manage multiple payments, although a specific payment is handled by only one department. This structure enables the system to efficiently track billing operations, identify responsible departments, and maintain a record of all transactions associated with appointments.
+
+## DESIGN CHOICES :
+
+Key entities like Patient, Doctor, Appointment, Department, Medical Record, and Payment were chosen to cover all essential hospital operations. Relationships such as Consults, Assign, and Cost of Consultation reflect real-world interactions like doctor visits and billing. Many-to-many and total participation were used where needed for accuracy, such as every medical record being linked to a patient. We assumed that departments handle payments to reflect administrative structure. Overall, the design ensures clarity, real-world relevance, and future scalability.
+
+## RESULT :
+
+Thus, the ER diagram for the hospital management system was successfully designed, with appropriate entities, relationships, and constraints that accurately model the real-world healthcare environment.
