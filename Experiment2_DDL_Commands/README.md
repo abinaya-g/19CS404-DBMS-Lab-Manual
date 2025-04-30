@@ -190,18 +190,6 @@ ADD COLUMN Date_of_birth Date;
 
 **Question 5**
 ---
--- Paste Question 5 here
-
-```sql
--- Paste your SQL code below for Question 5
-```
-
-**Output:**
-
-![Output5](output.png)
-
-**Question 6**
----
 Insert the following customers into the Customers table:
 
 CustomerID  Name         Address     City        ZipCode
@@ -218,56 +206,105 @@ VALUES(303,'Bruce Wayne','789 Oak St','Gotham',10001);
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/3db9d1e3-d5d9-4e83-8053-d2fb8576a0ec)
+![image](https://github.com/user-attachments/assets/a6c4dd6d-72c1-4473-9c81-3f451cd35ca8)
+
+**Question 6**
+---
+Create a table named Employees with the following constraints:
+
+EmployeeID should be the primary key.
+FirstName and LastName should be NOT NULL.
+Email should be unique.
+Salary should be greater than 0.
+DepartmentID should be a foreign key referencing the Departments table.
+
+```sql
+CREATE TABLE Employees(
+EmployeeID INTEGER PRIMARY KEY,
+FirstName NOT NULL,
+LastName NOT NULL,
+Email UNIQUE,
+Salary CHECK (Salary > 0),
+DepartmentID INTEGER,
+FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+);
+```
+
+**Output:**
+
+![image](https://github.com/user-attachments/assets/e2870930-a58f-4b65-86ec-9a3fd17f0da3)
 
 **Question 7**
 ---
--- Paste Question 7 here
+Create a table named Departments with the following columns:
+
+DepartmentID as INTEGER
+DepartmentName as TEXT
 
 ```sql
--- Paste your SQL code below for Question 7
+CREATE TABLE Departments(
+DepartmentID INTEGER,
+DepartmentName TEXT
+);
 ```
 
 **Output:**
 
-![Output7](output.png)
+![image](https://github.com/user-attachments/assets/2528931c-9443-449d-8d64-ec183c65a23c)
 
 **Question 8**
 ---
--- Paste Question 8 here
+Insert all customers from Old_customers into Customers
+
+Table attributes are CustomerID, Name, Address, Email
 
 ```sql
--- Paste your SQL code below for Question 8
+INSERT INTO Customers(CustomerID, Name, Address, Email)
+SELECT CustomerID, Name, Address, Email FROM Old_customers
 ```
 
 **Output:**
 
-![Output8](output.png)
+![image](https://github.com/user-attachments/assets/b54c265c-03b1-4ebd-ba0d-c8e14a9a32f1)
 
 **Question 9**
 ---
--- Paste Question 9 here
+Insert the below data into the Books table, allowing the Publisher and Year columns to take their default values.
+
+ISBN             Title                 Author
+---------------  --------------------  ---------------
+978-6655443321   Big Data Analytics    Karen Adams
+
+Note: The Publisher and Year columns will use their default values.
 
 ```sql
--- Paste your SQL code below for Question 9
+INSERT INTO Books(ISBN, Title, Author) VALUES('978-6655443321','Big Data Analytics','Karen Adams');
 ```
 
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/9a5f18e9-45a3-42e5-a0d5-88523ede6c17)
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to Rename the "city" column to "location" in the "customer" table.
+
+Sample table: customer
+
+ customer_id |   cust_name    |    city    | grade | salesman_id 
+-------------+----------------+------------+-------+-------------
+        3002 | Nick Rimando   | New York   |   100 |        5001
+        3007 | Brad Davis     | New York   |   200 |        5001
+        3005 | Graham Zusi    | California |   200 |        5002
 
 ```sql
--- Paste your SQL code below for Question 10
+ALTER TABLE customer
+RENAME COLUMN city to location;
 ```
 
 **Output:**
 
-![Output10](output.png)
-
+![image](https://github.com/user-attachments/assets/126ce3d8-d58a-45ca-a5db-e6ffb59bb108)
 
 ## RESULT
 Thus, the SQL queries to implement different types of constraints and DDL commands have been executed successfully.
