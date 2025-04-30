@@ -103,6 +103,10 @@ CREATE TABLE Table_Name (
 );
 ```
 ## Queries:
+```
+Name: SHYAM S
+Reg.NO: 212223240156
+```
 **Question 1**
 --
 Create a table named Department with the following constraints:
