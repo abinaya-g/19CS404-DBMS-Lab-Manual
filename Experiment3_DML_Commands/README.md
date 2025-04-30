@@ -46,6 +46,10 @@ Used to retrieve records from a table.
 SELECT column1, column2 FROM table_name WHERE condition;
 ```
 ### Queries:
+```
+Name: SHYAM S
+Reg.NO: 212223240156
+```
 **Question 1**
 --
 Update the total selling price to quantity sold multiplied by updated selling price per unit where product id is 10 in the sales table.
