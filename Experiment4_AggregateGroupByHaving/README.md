@@ -36,8 +36,10 @@ GROUP BY column_name
 HAVING condition;
 ```
 ### Queries:
+```
 Name: SHYAM S
 Reg.NO: 212223240156
+```
 
 **Question 1**
 --
