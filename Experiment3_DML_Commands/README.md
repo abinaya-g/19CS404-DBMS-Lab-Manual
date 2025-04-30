@@ -302,7 +302,7 @@ from emp;
 
 **Output:**
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/a41fd419-ff87-427a-98bc-e876eebe7d07)
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
