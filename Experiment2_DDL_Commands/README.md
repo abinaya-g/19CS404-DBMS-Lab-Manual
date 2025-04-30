@@ -102,7 +102,7 @@ CREATE TABLE Table_Name (
   col_name3 data_type DEFAULT 'default_value'
 );
 ```
-
+## Queries:
 **Question 1**
 --
 Create a table named Department with the following constraints:
@@ -126,39 +126,67 @@ CREATE TABLE Department(
 
 **Question 2**
 ---
--- Paste Question 2 here
+Create a table named Bonuses with the following constraints:
+BonusID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+BonusAmount as REAL should be greater than 0.
+BonusDate as DATE.
+Reason as TEXT should not be NULL.
 
 ```sql
--- Paste your SQL code below for Question 2
+CREATE TABLE Bonuses(
+BonusID INTEGER PRIMARY KEY,
+EmployeeID INTEGER,
+BonusAmount REAL CHECK(BonusAmount > 0),
+BonusDate DATE,
+Reason TEXT NOT NULL,
+FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
+);
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/b0bc3b60-cfcd-4251-b70a-cd06ac8d6025)
+
+![image](https://github.com/user-attachments/assets/98412e76-0695-4140-a23e-832e13cc2b78)
 
 **Question 3**
 ---
--- Paste Question 3 here
+Create a table named Shipments with the following constraints:
+ShipmentID as INTEGER should be the primary key.
+ShipmentDate as DATE.
+SupplierID as INTEGER should be a foreign key referencing Suppliers(SupplierID).
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
--- Paste your SQL code below for Question 3
+CREATE TABLE Shipments(
+    ShipmentID INTEGER primary key,
+    ShipmentDate DATE,
+    SupplierID INTEGER,
+    OrderID INTEGER,
+    FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+);
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/93844c33-4a75-42e1-9d47-1487e1a6cb34)
+
+![image](https://github.com/user-attachments/assets/2ca9ac3f-c295-4d66-a41c-8e5f5b78d2ed)
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to add a column named Date_of_birth as Date in the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 4
+ALTER TABLE Student_details
+ADD COLUMN Date_of_birth Date;
 ```
 
 **Output:**
 
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/127f7e23-23ca-4fdd-a568-8eed74f2777c)
 
 **Question 5**
 ---
@@ -174,15 +202,23 @@ CREATE TABLE Department(
 
 **Question 6**
 ---
--- Paste Question 6 here
+Insert the following customers into the Customers table:
+
+CustomerID  Name         Address     City        ZipCode
+----------  -----------  ----------  ----------  ----------
+302         Laura Croft  456 Elm St  Seattle     98101
+303         Bruce Wayne  789 Oak St  Gotham      10001
 
 ```sql
--- Paste your SQL code below for Question 6
+INSERT INTO Customers(CustomerID,Name,Address,City,ZipCode)
+VALUES(302,'Laura Croft','456 Elm St','Seattle',98101);
+INSERT INTO Customers(CustomerID,Name,Address,City,ZipCode)
+VALUES(303,'Bruce Wayne','789 Oak St','Gotham',10001);
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/3db9d1e3-d5d9-4e83-8053-d2fb8576a0ec)
 
 **Question 7**
 ---
