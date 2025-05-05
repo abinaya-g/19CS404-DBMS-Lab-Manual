@@ -170,6 +170,7 @@ and purch_amt not in (948.50, 1983.43);
 ```
 
 **Output:**
+
 ![image](https://github.com/user-attachments/assets/297e3a2c-befd-44bb-9859-e49167733639)
 
 ## RESULT
