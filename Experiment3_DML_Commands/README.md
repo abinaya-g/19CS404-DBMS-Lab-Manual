@@ -47,123 +47,134 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+Write a SQL statement to change the first_name column of employees table with 'John' for those employees whose department_id is 80 and gets a commission_pct below 0.35.
 
 ```sql
--- Paste your SQL code below for Question 1
+update EMPLOYEES set first_name = "John" where department_id = 80 and commission_pct < .35;
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/246583e1-c637-4b47-a140-a12a6dd53871)
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL statement to update the product_name as 'Grapefruit' whose product_id is 4 in the products table.
 
 ```sql
--- Paste your SQL code below for Question 2
+update products set product_name = "Grapefruit" where product_id = 4;
 ```
 
 **Output:**
-
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/81148570-0140-4836-9dba-24c12d67f032)
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL query to Delete All Doctors whose ID ranges from 2 to 4.
 
 ```sql
--- Paste your SQL code below for Question 3
+delete from Doctors where doctor_id between 2 and 4;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/44b75600-fdb6-4884-b6c6-b7b8594dc772)
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to Delete customers with following conditions
+
+* 'CUST_COUNTRY' is not in a list of specified countries ('UK', 'USA', 'Canada')
+* 'GRADE' is greater than or equal to 3
 
 ```sql
--- Paste your SQL code below for Question 4
+delete from Customer where cust_country not in ('UK', 'USA', 'Canada') and grade >= 3
 ```
 
 **Output:**
-
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/0fec7b3c-b4a6-4b1f-bb59-0f6250acfd44)
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL statement to change the EMAIL and COMMISSION_PCT column of the following EMPLOYEES table with 'not available' and 0.55 for those employees whose DEPARTMENT_ID is 110.
 
 ```sql
--- Paste your SQL code below for Question 5
+update employees set email = 'not available', commission_pct = 0.55 where department_id=110;
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/4d3b0c1f-5fc2-4bac-ae8e-2e8babd8a526)
 
-![Output5](output.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL statement to Find the salesmen with all information who gets the commission within a range of 0.12 and 0.14.
 
 ```sql
--- Paste your SQL code below for Question 6
+select * from salesman where commission between 0.12 and 0.14;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/c216330a-e369-4dc1-8b89-2b9fe0235e8b)
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL statement to Find those salesmen with all information whose name containing the 1st character is 'N' and the 4th character is 'l' and rests may be any character.
 
 ```sql
--- Paste your SQL code below for Question 7
+select * from salesman where name like 'N__l%';
 ```
 
 **Output:**
-
-![Output7](output.png)
+![image](https://github.com/user-attachments/assets/65d2e588-ff0e-436e-852a-298a79abc143)
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write a SQL query to assign a priority of 'Low', 'Medium', or 'High' to value2 based on whether it is less than 20, between 20 and 50, or greater than 50, respectively in the Calculations table.
 
 ```sql
--- Paste your SQL code below for Question 8
+select id,value2, 
+case
+    when value2 < 20 then 'Low'
+    when value2 between 20 and 50 then 'Medium'
+    when value2 > 50 then 'High'
+    end as priority from Calculations;
 ```
 
 **Output:**
 
-![Output8](output.png)
+![image](https://github.com/user-attachments/assets/ae61d350-fc6d-4178-b037-c1f823dda408)
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to calculate the absolute value of the value1 column from the Calculations table.
 
 ```sql
--- Paste your SQL code below for Question 9
+select id,value1,abs(value1) as absolute_value from Calculations;
 ```
 
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/5a12a686-465e-4ace-84b9-7261faed914c)
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to select orders between 500 and 4000 (begin and end values are included). Exclude orders amount 948.50 and 1983.43. Return ord_no, purch_amt, ord_date, customer_id, and salesman_id.
 
 ```sql
--- Paste your SQL code below for Question 10
+select ord_no, purch_amt, ord_date, customer_id, salesman_id from orders 
+where purch_amt between 500 and 4000
+and purch_amt not in (948.50, 1983.43);
 ```
 
 **Output:**
 
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/297e3a2c-befd-44bb-9859-e49167733639)
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
+
+## PROOF
+![image](https://github.com/user-attachments/assets/16d20e12-d446-424d-890b-965a58e34af0)
