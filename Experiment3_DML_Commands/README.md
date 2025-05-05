@@ -310,3 +310,6 @@ from emp;
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
+
+![image](https://github.com/user-attachments/assets/815acb39-9989-46ff-9155-c88287a3feff)
+
