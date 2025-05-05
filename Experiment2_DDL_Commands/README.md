@@ -312,3 +312,6 @@ RENAME COLUMN city to location;
 
 ## RESULT
 Thus, the SQL queries to implement different types of constraints and DDL commands have been executed successfully.
+
+![image](https://github.com/user-attachments/assets/400f9252-7b71-4612-9d6f-d6beda7e92d3)
+
