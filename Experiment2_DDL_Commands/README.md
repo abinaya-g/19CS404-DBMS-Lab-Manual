@@ -102,127 +102,213 @@ CREATE TABLE Table_Name (
   col_name3 data_type DEFAULT 'default_value'
 );
 ```
-
+## Queries:
+```
+Name: SHYAM S
+Reg.NO: 212223240156
+```
 **Question 1**
 --
--- Paste Question 1 here
+Create a table named Department with the following constraints:
+DepartmentID as INTEGER should be the primary key.
+DepartmentName as TEXT should be unique and not NULL.
+Location as TEXT.
 
 ```sql
--- Paste your SQL code below for Question 1
+CREATE TABLE Department(
+    DepartmentID INTEGER PRIMARY KEY,
+    DepartmentName TEXT UNIQUE NOT NULL,
+    Location TEXT
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/2e79062b-18c6-4eb1-b131-3ba4b0b8d6ad)
+
+![image](https://github.com/user-attachments/assets/39f61a82-5223-488c-b29e-736ad6e9d842)
 
 **Question 2**
 ---
--- Paste Question 2 here
+Create a table named Bonuses with the following constraints:
+BonusID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+BonusAmount as REAL should be greater than 0.
+BonusDate as DATE.
+Reason as TEXT should not be NULL.
 
 ```sql
--- Paste your SQL code below for Question 2
+CREATE TABLE Bonuses(
+BonusID INTEGER PRIMARY KEY,
+EmployeeID INTEGER,
+BonusAmount REAL CHECK(BonusAmount > 0),
+BonusDate DATE,
+Reason TEXT NOT NULL,
+FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
+);
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/b0bc3b60-cfcd-4251-b70a-cd06ac8d6025)
+
+![image](https://github.com/user-attachments/assets/98412e76-0695-4140-a23e-832e13cc2b78)
 
 **Question 3**
 ---
--- Paste Question 3 here
+Create a table named Shipments with the following constraints:
+ShipmentID as INTEGER should be the primary key.
+ShipmentDate as DATE.
+SupplierID as INTEGER should be a foreign key referencing Suppliers(SupplierID).
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
--- Paste your SQL code below for Question 3
+CREATE TABLE Shipments(
+    ShipmentID INTEGER primary key,
+    ShipmentDate DATE,
+    SupplierID INTEGER,
+    OrderID INTEGER,
+    FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+);
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/93844c33-4a75-42e1-9d47-1487e1a6cb34)
+
+![image](https://github.com/user-attachments/assets/2ca9ac3f-c295-4d66-a41c-8e5f5b78d2ed)
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to add a column named Date_of_birth as Date in the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 4
+ALTER TABLE Student_details
+ADD COLUMN Date_of_birth Date;
 ```
 
 **Output:**
 
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/127f7e23-23ca-4fdd-a568-8eed74f2777c)
 
 **Question 5**
 ---
--- Paste Question 5 here
+Insert the following customers into the Customers table:
+
+CustomerID  Name         Address     City        ZipCode
+----------  -----------  ----------  ----------  ----------
+302         Laura Croft  456 Elm St  Seattle     98101
+303         Bruce Wayne  789 Oak St  Gotham      10001
 
 ```sql
--- Paste your SQL code below for Question 5
+INSERT INTO Customers(CustomerID,Name,Address,City,ZipCode)
+VALUES(302,'Laura Croft','456 Elm St','Seattle',98101);
+INSERT INTO Customers(CustomerID,Name,Address,City,ZipCode)
+VALUES(303,'Bruce Wayne','789 Oak St','Gotham',10001);
 ```
 
 **Output:**
 
-![Output5](output.png)
+![image](https://github.com/user-attachments/assets/a6c4dd6d-72c1-4473-9c81-3f451cd35ca8)
 
 **Question 6**
 ---
--- Paste Question 6 here
+Create a table named Employees with the following constraints:
+
+EmployeeID should be the primary key.
+FirstName and LastName should be NOT NULL.
+Email should be unique.
+Salary should be greater than 0.
+DepartmentID should be a foreign key referencing the Departments table.
 
 ```sql
--- Paste your SQL code below for Question 6
+CREATE TABLE Employees(
+EmployeeID INTEGER PRIMARY KEY,
+FirstName NOT NULL,
+LastName NOT NULL,
+Email UNIQUE,
+Salary CHECK (Salary > 0),
+DepartmentID INTEGER,
+FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+);
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/e2870930-a58f-4b65-86ec-9a3fd17f0da3)
 
 **Question 7**
 ---
--- Paste Question 7 here
+Create a table named Departments with the following columns:
+
+DepartmentID as INTEGER
+DepartmentName as TEXT
 
 ```sql
--- Paste your SQL code below for Question 7
+CREATE TABLE Departments(
+DepartmentID INTEGER,
+DepartmentName TEXT
+);
 ```
 
 **Output:**
 
-![Output7](output.png)
+![image](https://github.com/user-attachments/assets/2528931c-9443-449d-8d64-ec183c65a23c)
 
 **Question 8**
 ---
--- Paste Question 8 here
+Insert all customers from Old_customers into Customers
+
+Table attributes are CustomerID, Name, Address, Email
 
 ```sql
--- Paste your SQL code below for Question 8
+INSERT INTO Customers(CustomerID, Name, Address, Email)
+SELECT CustomerID, Name, Address, Email FROM Old_customers
 ```
 
 **Output:**
 
-![Output8](output.png)
+![image](https://github.com/user-attachments/assets/b54c265c-03b1-4ebd-ba0d-c8e14a9a32f1)
 
 **Question 9**
 ---
--- Paste Question 9 here
+Insert the below data into the Books table, allowing the Publisher and Year columns to take their default values.
+
+ISBN             Title                 Author
+---------------  --------------------  ---------------
+978-6655443321   Big Data Analytics    Karen Adams
+
+Note: The Publisher and Year columns will use their default values.
 
 ```sql
--- Paste your SQL code below for Question 9
+INSERT INTO Books(ISBN, Title, Author) VALUES('978-6655443321','Big Data Analytics','Karen Adams');
 ```
 
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/9a5f18e9-45a3-42e5-a0d5-88523ede6c17)
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to Rename the "city" column to "location" in the "customer" table.
+
+Sample table: customer
+
+ customer_id |   cust_name    |    city    | grade | salesman_id 
+-------------+----------------+------------+-------+-------------
+        3002 | Nick Rimando   | New York   |   100 |        5001
+        3007 | Brad Davis     | New York   |   200 |        5001
+        3005 | Graham Zusi    | California |   200 |        5002
 
 ```sql
--- Paste your SQL code below for Question 10
+ALTER TABLE customer
+RENAME COLUMN city to location;
 ```
 
 **Output:**
 
-![Output10](output.png)
-
+![image](https://github.com/user-attachments/assets/126ce3d8-d58a-45ca-a5db-e6ffb59bb108)
 
 ## RESULT
 Thus, the SQL queries to implement different types of constraints and DDL commands have been executed successfully.

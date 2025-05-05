@@ -45,28 +45,86 @@ Design a database for patient management, appointments, medical records, and bil
    - Why you chose the entities and relationships.
    - How you modeled prerequisites or billing.
 
-# ER Diagram Submission - Student Name
+# ER Diagram Submission: 
+
+Student Name: SHYAM S  
+Student Register No: 212223240156
 
 ## Scenario Chosen:
-University / Hospital (choose one)
+
+### Hospital
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+
+![Workshop_Hospital](https://github.com/user-attachments/assets/546f1822-55e9-42e6-9751-f3395d4863a4)
 
 ## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
+Hospital:
+Attributes: Hospital_ID (Primary Key), Name, Contact_Details
+
+Doctors:
+Attributes: Doctor_ID (Primary Key), Name, Hospital_ID (Foreign Key)
+
+Patients:
+Attributes: ID (Primary Key), Name, Desc, Doctor_ID (Foreign Key)
+
+Appointment:
+Attributes: Appointment_ID (Primary Key), Date, Patient_ID (Foreign Key)
+
+Medical Record:
+Attributes: Report_No (Primary Key), Appointment_ID (Foreign Key), Dept
 ...
 
 ## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
+Contains (Hospital ↔ Doctors)
+
+Cardinality: 1 Hospital : N Doctors
+
+Participation: Total on Hospital (mandatory 1) and Partial on Doctors (a Doctor must belong to a Hospital)
+
+Treats (Doctors ↔ Patients)
+
+Cardinality: N Doctors : N Patients
+
+Participation: Partial for both (a Doctor may or may not treat many Patients; a Patient may be treated by multiple Doctors)
+
+Books (Patients ↔ Appointment)
+
+Cardinality: 1 Patient : N Appointments
+
+Participation: Total on Appointment (every Appointment must be booked by a Patient)
+
+Receives (Patients ↔ Medical Record)
+
+Cardinality: N Patients : N Medical Records
+
+Participation: Partial for both (a Patient may have multiple Medical Records, a Record must belong to a Patient)
 ...
 
-## Extension (Prerequisite / Billing):
+## Extension (Billing):
 - Explain how you modeled prerequisites or billing.
 
 ## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+Entities:
+Chose Hospital, Doctors, Patients, Appointment, and Medical Record to represent key parts of a healthcare system.
 
-## RESULT
+Relationships:
+
+Hospital Contains Doctors (1:N) – A hospital has many doctors.
+
+Doctor Treats Patient (N:N) – Doctors can treat many patients, and patients can have many doctors.
+
+Patient Books Appointment (1:N) – A patient can book multiple appointments.
+
+Patient Receives Medical Record (N:N) – Patients receive multiple medical records linked to appointments.
+
+Assumptions:
+
+Each doctor works in one hospital.
+
+Each appointment is booked by one patient.
+
+Medical records are created only after an appointment.
+
+## RESULT:
+Thus, this project effectively models a hospital management system through an ER diagram, clearly representing the relationships among hospitals, doctors, patients, appointments, and medical records.
