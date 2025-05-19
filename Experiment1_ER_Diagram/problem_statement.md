@@ -51,22 +51,127 @@ Design a database for patient management, appointments, medical records, and bil
 University / Hospital (choose one)
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+
+![Screenshot 2025-04-29 192421](https://github.com/user-attachments/assets/04438c41-e3e7-443d-ab3a-3c34ad3cbb3e)
+
 
 ## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
-...
+1. Student
+
+   Attributes:
+
+   Student ID
+
+   Name
+
+   Address
+
+   Telephone
+
+   Date of Birth
+
+   NID
+
+2. Enrollment
+
+   Attributes:
+
+   Enrollment Date
+
+   Course Name
+
+3. Lecturer
+
+   Attributes:
+
+   Lecturer ID
+
+   Name
+
+   Address
+
+   Telephone
+
+   Email
+
+4. Subjects
+
+   Attributes:
+
+   Subject Code
+
+   Subject Unit
+
+   Subject Desc
+
+5. Lecture
+
+   Attributes:
+
+   CC ID
+
+   Subject
+
+   Date
+
+   Time
+
+   Lecturer Name
 
 ## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
-...
+ 1. enrolls (between Enrollment and Student)
 
+    Cardinality:
+
+    One Enrollment → many Students (1:N)
+
+    Participation:
+
+    Total participation of Enrollment (each enrollment must be associated with a student)
+
+    Partial participation of Student (not every student must be enrolled)
+
+2. lectures (between Lecturer and Lecture)
+
+   Cardinality:
+
+   One Lecturer → many Lectures (1:N)
+
+   Participation:
+
+   Total participation of Lecture (every lecture must have a lecturer)
+
+   Partial participation of Lecturer (a lecturer might not give any lectures)
+
+3. Lecture–Subjects relationship
+
+   Cardinality:
+
+   Many Lectures → one Subject (N:1)
+
+   Participation:
+
+   Total participation of Lecture (each lecture is about one subject)
+
+   Partial participation of Subject (not every subject must have a lecture)
+   
 ## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
+
+-Prerequisite is a recursive relationship on the Subjects entity.
+It represents that one subject may require completion of another subject before it.
+Cardinality is many-to-many (M:N) with partial participation from both sides.
 
 ## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+
+1. Many-to-Many Relationship: Since each student can take many subjects and each subject can be taken by many students, a many-to-many relationship is appropriate.
+
+2. Associative Entity: Model Result as an associative entity with attributes like grade, marks, or status to store performance details.
+
+3. Total Participation from Result: Every Result must be linked to both a Student and a Subject, ensuring referential integrity.
+
 
 ## RESULT
+
+Result is a relationship between Student and Subjects.
+It captures the performance of a student in a subject (e.g., marks, grade).
+Cardinality is many-to-many (M:N), with attributes like grade or score.
