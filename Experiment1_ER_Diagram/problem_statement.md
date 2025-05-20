@@ -45,28 +45,71 @@ Design a database for patient management, appointments, medical records, and bil
    - Why you chose the entities and relationships.
    - How you modeled prerequisites or billing.
 
-# ER Diagram Submission - Student Name
+# ER Diagram Submission - Student 
+## Name:NAVEEN.S
+## Reg.no:212223240106
 
 ## Scenario Chosen:
-University / Hospital (choose one)
+University 
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+![image](https://github.com/user-attachments/assets/8074880e-e8f8-4a4c-af85-967e800240f2)
+
 
 ## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
-...
-
+### Student:
+Attributes: StudentID, FirstName, LastName, DateOfBirth, Email, PhoneNumber, EnrollmentDate, DepartmentID
+### Faculty:
+Attributes: FacultyID, FirstName, LastName, Email, PhoneNumber, HireDate, DepartmentID
+### Department:
+Attributes: DepartmentID, DepartmentName, Location
+### Course:
+Attributes: CourseID, CourseName, CourseCode, Credits, DepartmentID
+### Enrollment:
+Attributes: EnrollmentID, StudentID, CourseID, EnrollmentDate, Grade
+### Class:
+Attributes: ClassID, CourseID, FacultyID, Semester, Year, Schedule
+### Advising:
+Attributes: AdvisingID, StudentID, FacultyID, AdvisingDate
 ## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
-...
-
+### Student–Advising–Faculty
+Relationship: Advises
+Cardinality: Many-to-Many (each student can have multiple advisors, each faculty can advise multiple students)
+Participation: Total on Advising
+### Student–Enrollment–Course:
+Relationship: Enrolled in
+Cardinality: Many-to-Many
+Participation: Total on Enrollment
+### Course–Class–Faculty:
+Relationship: Teaches
+Cardinality: Many-to-Many (each course can be taught in multiple classes, each faculty can teach multiple classes)
+### Course–Department:
+Relationship: Offered by
+Cardinality: Many-to-One (Each course belongs to one department)
+### Student–Department:
+Relationship: Belongs to
+Cardinality: Many-to-One
+### Faculty–Department:
+Relationship: Belongs to
+Cardinality: Many-to-One
+### Class–Course:
+Relationship: Includes
+Cardinality: Many-to-One
+### Enrollment–Class:
+Relationship: Taught by
+Not standard; assumes indirect mapping via faculty
 ## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
-
+### Prerequisite Modeling:
+Could be modeled with a recursive relationship on Course:
+Relationship: Requires
+Cardinality: Many-to-Many (a course can have many prerequisites and be a prerequisite for many others)
 ## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+Use of separate entities for Advising, Enrollment, and Class helps normalize many-to-many relationships and maintain relational integrity.
+Department as a central entity provides a logical way to group students, faculty, and courses.
+
+Class entity includes scheduling details, separating course content from the time/location of delivery.
+
+The design is modular and supports easy extension for future requirements like prerequisites, billing, or attendance.
 
 ## RESULT
+Thus, the Entity-Relationship (ER) Diagram have been created successfully.
