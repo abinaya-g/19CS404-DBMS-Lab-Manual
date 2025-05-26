@@ -105,124 +105,197 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Create a table named Shipments with the following constraints:
+* ShipmentID as INTEGER should be the primary key.
+* ShipmentDate as DATE.
+* SupplierID as INTEGER should be a foreign key referencing Suppliers(SupplierID).
+* OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
--- Paste your SQL code below for Question 1
+create table Shipments(
+    ShipmentID INTEGER primary key,
+    ShipmentDate DATE,
+    SupplierID INTEGER,
+    OrderID INTEGER,
+    foreign key (SupplierID) references Suppliers(SupplierID),
+    foreign key (OrderID) references Orders(OrderID)
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/06cbcfdf-5de8-4e02-954f-e3bafde5c5dd)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Create a table named Products with the following constraints:
+* ProductID as INTEGER should be the primary key.
+* ProductName as TEXT should be unique and not NULL.
+* Price as REAL should be greater than 0.
+* StockQuantity as INTEGER should be non-negative.
 
 ```sql
--- Paste your SQL code below for Question 2
+CREATE TABLE Products(
+    ProductID INTEGER primary key,
+    ProductName TEXT UNIQUE NOT NULL,
+    Price REAL check(price>0),
+    StockQuantity INTEGER check(StockQuantity>0)
+);
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/dbe82c96-7ea1-4a42-adb5-1d1b64e6b3e8)
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL query to Rename the "city" column to "location" in the "customer" table.
 
 ```sql
--- Paste your SQL code below for Question 3
+alter table customer rename 'city' to 'location';
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/c5b27e17-231d-41ae-a29f-1f6e9378815f)
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write an SQL query to add two new columns, designation and net_salary, to the table Companies. The designation column should have a data type of varchar(50), and the net_salary column should have a data type of number.
 
 ```sql
--- Paste your SQL code below for Question 4
+ALTER TABLE Companies add column designation varchar(50);
+ALTER TABLE Companies add column net_salary number;
 ```
 
 **Output:**
 
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/664d8036-0144-4915-92f5-4a78d29d8324)
 
 **Question 5**
 ---
--- Paste Question 5 here
+Insert a student with RollNo 201, Name David Lee, Gender M, Subject Physics, and MARKS 92 into the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 5
+INSERT INTO Student_details values(
+    201,"David Lee",'M',"Physics",92
+);
 ```
 
 **Output:**
 
-![Output5](output.png)
+![image](https://github.com/user-attachments/assets/3a29faf3-5cb6-435c-ba56-83df5e3fcaee)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Create a table named Invoices with the following constraints:
+
+* InvoiceID as INTEGER should be the primary key.
+* InvoiceDate as DATE.
+* DueDate as DATE should be greater than the InvoiceDate.
+* Amount as REAL should be greater than 0.
 
 ```sql
--- Paste your SQL code below for Question 6
+CREATE TABLE Invoices (
+    InvoiceID INTEGER primary key,
+    InvoiceDate DATE,
+    DueDate Date check (DueDate > InvoiceDate),
+    Amount Real check (Amount > 0)
+);
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/f88bbefc-2d3b-44d6-baaf-9471a23b6d21)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Create a new table named item with the following specifications and constraints:
+* item_id as TEXT and as primary key.
+* item_desc as TEXT.
+* rate as INTEGER.
+* icom_id as TEXT with a length of 4.
+* icom_id is a foreign key referencing com_id in the company table.
+* The foreign key should cascade updates and deletes.
+* item_desc and rate should not accept NULL.
 
 ```sql
--- Paste your SQL code below for Question 7
+CREATE TABLE item (
+    item_id TEXT Primary key,
+    item_desc TEXT NOT NULL,
+    rate INTEGER NOT NULL,
+    icom_id TEXT check(length(icom_id = 4)),
+    foreign key (icom_id) references company(com_id)
+    on update cascade
+    on delete cascade
+);
 ```
 
 **Output:**
 
-![Output7](output.png)
+![image](https://github.com/user-attachments/assets/4365dec2-78f4-46e4-bcdd-dbf46ea6bca7)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+In the Cusomers table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
 
 ```sql
--- Paste your SQL code below for Question 8
+INSERT INTO Customers (CustomerID,Name,Address,City,ZipCode) values
+    (306,'Diana Prince','Themyscira',NULL,NULL),
+    (307,'Bruce Wayne','Wayne Mano',"Gotham",10007),
+    (308,'Peter Parker','Queens',NULL,11375)
 ```
 
 **Output:**
 
-![Output8](output.png)
+![image](https://github.com/user-attachments/assets/27b7098f-ae9f-4165-882d-69d036ec6dd5)
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Create a table named Orders with the following columns:
+
+* OrderID as INTEGER
+* OrderDate as TEXT
+* CustomerID as INTEGER
 
 ```sql
--- Paste your SQL code below for Question 9
+CREATE TABLE Orders (
+    OrderID INTEGER,
+    OrderDate TEXT,
+    CustomerID INTEGER
+);
 ```
 
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/95acee90-cf1c-4130-b9b1-a10d15fed13a)
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Insert all products from Discontinued_products into Products.
+
+Table attributes are ProductID, ProductName, Price, Stock
 
 ```sql
--- Paste your SQL code below for Question 10
+INSERT INTO Products (ProductID, ProductName, Price, Stock) SELECT ProductID, ProductName, Price, Stock FROM Discontinued_products;
 ```
 
 **Output:**
 
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/f5daa2a7-eed8-4521-92ea-9f1ea556465f)
+
 
 
 ## RESULT
 Thus, the SQL queries to implement different types of constraints and DDL commands have been executed successfully.
+
+## Proof
+![image](https://github.com/user-attachments/assets/44838c47-29b4-4703-8bc2-c7df3283856a)
+

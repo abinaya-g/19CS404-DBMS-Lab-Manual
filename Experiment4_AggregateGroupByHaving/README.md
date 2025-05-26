@@ -38,123 +38,133 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+How many medical records are there for each patient?
 
 ```sql
--- Paste your SQL code below for Question 1
+select PatientID,count(*) as TotalRecords from MedicalRecords group by PatientID;
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/3a65ce4e-eae4-411a-a048-af8ce875c9af)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL Query to find how many medications are prescribed for each patient?
 
 ```sql
--- Paste your SQL code below for Question 2
+select PatientID, count(Medications) as AvgMedications from MedicalRecords group by PatientID;
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/69c4b3c0-10ed-44d3-8475-0b497d2fe2fb)
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+How many appointments are scheduled in each hour of the day?
 
 ```sql
--- Paste your SQL code below for Question 3
+select strftime('%H',AppointmentDateTime) as HourOfDay, count(*) as TotalAppointments from Appointments group by HourOfDay;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/087c9be1-12fd-4b17-ad20-154280b274be)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query that counts the number of unique salespeople. Return number of salespeople.
 
 ```sql
--- Paste your SQL code below for Question 4
+select count(distinct salesman_id) as COUNT from orders;
 ```
 
 **Output:**
 
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/c34457df-85f7-4b86-9819-26015c535894)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to  find the average salary of all employees?
 
 ```sql
--- Paste your SQL code below for Question 5
+select avg(income) as Average_Salary from employee;
 ```
 
 **Output:**
 
-![Output5](output.png)
+![image](https://github.com/user-attachments/assets/0fffcde1-89f9-447b-ad59-e6e812c5cbe2)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to find the total amount of fruits with a unit type of 'LB'.
 
 ```sql
--- Paste your SQL code below for Question 6
+select sum(inventory) as total from fruits where unit="LB";
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/d1a5e248-9ec5-470a-b1a8-dd18123889de)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to count the number of customers. Return number of customers.
 
 ```sql
--- Paste your SQL code below for Question 7
+select count(customer_id) as COUNT from customer;
 ```
 
 **Output:**
 
-![Output7](output.png)
+![image](https://github.com/user-attachments/assets/2f4248a5-1886-4fb6-8e1e-1c82a255b98e)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write the SQL query that accomplishes the selection of total cost of all products in each category from the "products" table and includes only those products where the total cost is greater than 50.
 
 ```sql
--- Paste your SQL code below for Question 8
+select category_id, sum(price) as Total_Cost from products group by category_id having Total_Cost>50;
 ```
 
 **Output:**
 
-![Output8](output.png)
+![image](https://github.com/user-attachments/assets/030f5772-481f-4f57-a853-f01ccf600cd2)
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write the SQL query that accomplishes the selection of number of products for each category from products table which includes only those products where the category ID is greater than 2.
 
 ```sql
--- Paste your SQL code below for Question 9
+select category_id,count(product_name) as COUNT from products group by category_id having category_id > 2;
 ```
 
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/8447519f-1ee9-4400-8def-574796f0b661)
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write the SQL query that accomplishes the selection of product which has lowest price in each category from the "products" table and includes only those products where the minimum price is less than 10.
 
 ```sql
--- Paste your SQL code below for Question 10
+select category_id, min(Price) as Price from products group by category_id having Price < 10;
 ```
 
 **Output:**
 
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/0ae9125c-0155-4dab-a2da-4bea8bc2c1fc)
+
 
 
 ## RESULT
