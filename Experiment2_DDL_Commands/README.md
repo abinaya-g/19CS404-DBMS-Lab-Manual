@@ -1,5 +1,6 @@
 # Experiment 2: DDL Commands
-
+## Name:NAVEEN.S
+## Reg.no:212223240106
 ## AIM
 To study and implement DDL commands and different types of constraints.
 
@@ -105,123 +106,175 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Write a SQL query to modify the Student_details table by adding a new column Email of type VARCHAR(50) and updating the column MARKS to have a default value of 0.
 
 ```sql
--- Paste your SQL code below for Question 1
+ALTER TABLE  Student_details ADD COLUMN Email VARCHAR(50);
+ALTER TABLE  Student_details ADD COLUMN MARKS DEFAULT '0';
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/ee66ecd7-1856-4f28-9eb2-f355c5c2d525)
 
 **Question 2**
 ---
--- Paste Question 2 here
+Create a new table named contacts with the following specifications:
+contact_id as INTEGER and primary key.
+first_name as TEXT and not NULL.
+last_name as TEXT and not NULL.
+email as TEXT.
+phone as TEXT and not NULL with a check constraint to ensure the length of phone is at least 10 characters.
 
 ```sql
--- Paste your SQL code below for Question 2
+CREATE TABLE contacts (
+contact_id INT PRIMARY KEY,
+first_name TEXT  NOT NULL,
+last_name TEXT NOT NULL,
+email TEXT,
+phone TEXT  NOT NULL,
+CHECK (LENGTH(phone)>=10)
+);
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/1d5c7520-4e44-4c27-bed2-7600b1a18343)
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Insert all books from Out_of_print_books into Books
+
+Table attributes are ISBN, Title, Author, Publisher, YearPublished
 
 ```sql
--- Paste your SQL code below for Question 3
+INSERT INTO Books(ISBN, Title, Author, Publisher, YearPublished)
+SELECT ISBN, Title, Author, Publisher, YearPublished 
+FROM Out_of_print_books;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/9a58446b-df5f-449b-ad78-dc73edf322cd)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Create a table named Departments with the following columns:
+
+DepartmentID as INTEGER
+DepartmentName as TEXT
 
 ```sql
--- Paste your SQL code below for Question 4
+CREATE TABLE Departments(
+DepartmentID INTEGER,
+DepartmentName TEXT);
 ```
 
 **Output:**
 
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/caec006f-7169-4cf0-8c8d-b70a9247a8c4)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write an SQL query to add two new columns, department_id and manager_id, to the table employee with datatype of INTEGER. The manager_id column should have a default value of NULL.
 
 ```sql
--- Paste your SQL code below for Question 5
+ALTER TABLE employee ADD COLUMN department_id INTEGER;
+ALTER TABLE employee ADD COLUMN manager_id INTEGER DEFAULT NULL;
 ```
 
 **Output:**
 
-![Output5](output.png)
+![image](https://github.com/user-attachments/assets/df6530c9-6937-4bbb-bd62-32a8552e6e23)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Insert all customers from Old_customers into Customers
 
+Table attributes are CustomerID, Name, Address, Email
 ```sql
--- Paste your SQL code below for Question 6
+INSERT INTO Customers(CustomerID, Name, Address, Email)
+SELECT CustomerID, Name, Address, Email
+FROM Old_customers;6
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/65ef1ba6-eecc-48a3-be8b-9debb3b6ca27)
+
 
 **Question 7**
----
--- Paste Question 7 here
+---Write a SQL query to Add a new column named "discount" with the data type DECIMAL(5,2) to the "customer" table.
+
+Sample table: customer
+
+ customer_id |   cust_name    |    city    | grade | salesman_id 
+-------------+----------------+------------+-------+-------------
+        3002 | Nick Rimando   | New York   |   100 |        5001
+        3007 | Brad Davis     | New York   |   200 |        5001
+        3005 | Graham Zusi    | California |   200 |        5002
 
 ```sql
--- Paste your SQL code below for Question 7
-```
+ALTER TABLE customer  ADD COLUMN discount DECIMAL(5,2);```
 
 **Output:**
 
-![Output7](output.png)
+![image](https://github.com/user-attachments/assets/fc9f743c-666b-401b-84c5-983bd21a4926)
 
 **Question 8**
 ---
--- Paste Question 8 here
+Create a table named Customers with the following columns:
 
+CustomerID as INTEGER
+Name as TEXT
+Email as TEXT
+JoinDate as DATETIME
 ```sql
--- Paste your SQL code below for Question 8
+CREATE TABLE Customers(
+CustomerID INTEGER,
+Name TEXT,
+Email TEXT ,
+JoinDate DATETIME);
 ```
 
 **Output:**
 
-![Output8](output.png)
+![image](https://github.com/user-attachments/assets/72dd00bc-e79a-4ea3-832a-675c05109d6b)
 
 **Question 9**
 ---
--- Paste Question 9 here
-
+Write an SQL query to add a new column salary of type INTEGER to the Employees table, with a CHECK constraint that ensures the value in this column is greater than 0.
 ```sql
--- Paste your SQL code below for Question 9
+Write an SQL query to add a new column salary of type INTEGER to the Employees table, with a CHECK constraint that ensures the value in this column is greater than 0.
 ```
-
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/7c23750a-9bdc-492c-96fb-b6dfb14ca76c)
 
 **Question 10**
 ---
--- Paste Question 10 here
-
+Create a table named Shipments with the following constraints:
+ShipmentID as INTEGER should be the primary key.
+ShipmentDate as DATE.
+SupplierID as INTEGER should be a foreign key referencing Suppliers(SupplierID).
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 ```sql
--- Paste your SQL code below for Question 10
+CREATE TABLE Shipments (
+ShipmentID INTEGER PRIMARY KEY,
+ShipmentDate DATE,
+SupplierID INTEGER,
+OrderID INTEGER ,
+FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID),
+FOREIGN KEY (OrderID ) REFERENCES Orders(OrderID));
 ```
 
 **Output:**
 
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/fa38a87a-b96c-47ce-85ea-95734f7ba107)
 
 
 ## RESULT
