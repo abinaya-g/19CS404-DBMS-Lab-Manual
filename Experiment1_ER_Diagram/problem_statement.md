@@ -105,8 +105,7 @@ A popular restaurant wants to manage reservations, orders, and billing.
 - Bills generated per reservation, including food and service charges.  
 - Waiters assigned to serve reservations.
 
-### ER Diagram:
-*Paste or attach your diagram here*  
+### ER Diagram: 
 ![ER Diagram](er_diagram_restaurant.png)
 
 ### Entities and Attributes
