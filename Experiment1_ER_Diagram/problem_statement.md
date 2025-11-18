@@ -1,54 +1,12 @@
-# ER Diagram Workshop – Submission Template
-
-## Objective
-To understand and apply ER modeling concepts by creating ER diagrams for real-world applications.
-
-## Purpose
-Gain hands-on experience in designing ER diagrams that represent database structure including entities, relationships, attributes, and constraints.
-
----
-
-# Scenario A: City Fitness Club Management
-
-**Business Context:**  
-FlexiFit Gym wants a database to manage its members, trainers, and fitness programs.
-
-**Requirements:**  
-- Members register with name, membership type, and start date.  
-- Each member can join multiple programs (Yoga, Zumba, Weight Training).  
-- Trainers assigned to programs; a program may have multiple trainers.  
-- Members may book personal training sessions with trainers.  
-- Attendance recorded for each session.  
-- Payments tracked for memberships and sessions.
-
-### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_fitness.png)
-
-### Entities and Attributes
-
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+JOIN – Connects MEMBERS and PROGRAM.
+A member joins a program. This is generally a many-to-many relationship.
+CONDUCTS – Connects PROGRAM and TRAINERS.
+A trainer conducts a program. This is also typically many-to-many.
+DUTY – Connects TRAINERS and PAYMENT.
+Payments are linked to the duties of trainers. Normally a trainer can have many payments, but each payment refers to one trainer (one-to-many)
 
-### Assumptions
-- 
-- 
-- 
-
----
 
 # Scenario B: City Library Event & Book Lending System
 
@@ -64,33 +22,43 @@ The Central Library wants to manage book lending and cultural events.
 - Overdue fines apply for late returns.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_library.png)
+
+<img width="705" height="535" alt="image" src="https://github.com/user-attachments/assets/5932656a-7022-4a30-9c08-7bbb871d8237" />
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+
+Member
+Attributes: MemberID, Name, Address, Phone, Email, MembershipDate.
+Loan
+Attributes: LoanID, LoanDate, ReturnDate, ActualReturnDate.
+Book
+Attributes: BookID, Title, Author, Category, Status.
+Event
+Attributes: EventID, EventName, EventDate, Description.
+Speaker
+Attributes: SpeakerID, Name, Biography.
+Room
+Attributes: RoomID, RoomName, Type, Capacity.
+Registration
+Attributes: RegistrationID, RegistrationDate.
+
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+Member – Loan – Book
+A member can borrow (loan) many books. A loan connects a member and a book.
+Cardinality: Member 1..M — Loan M..1 — Book (a member can have many loans; a book can appear in many loans over time).
+Member – Registration – Event
+A member registers for an event. Registration acts as an associative entity containing RegistrationDate.
+Cardinality: Many-to-Many through Registration.
+Event – Speaker
+An event can have many speakers and a speaker can speak at many events.
+Cardinality: Many-to-Many.
+Event – Room
+An event takes place in a room. A room can host many events over time.
+Cardinality: One-to-Many (one room can hold many events, each event occurs in one room).
 
-### Assumptions
-- 
-- 
-- 
-
----
 
 # Scenario C: Restaurant Table Reservation & Ordering
 
@@ -106,38 +74,36 @@ A popular restaurant wants to manage reservations, orders, and billing.
 - Waiters assigned to serve reservations.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_restaurant.png)
+
+<img width="754" height="453" alt="image" src="https://github.com/user-attachments/assets/c2bd1016-4843-439b-8661-ef5690ee3556" />
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+Customer
+Attributes: CustomerID, Name, Phone.
+Reservation
+Attributes: ReservationID, Date, Time, GuestCount, CustomerID (FK).
+Table
+Attributes: TableID, Location, Capacity.
+Waiter
+Attributes: WaiterID, Name.
+Bill
+Attributes: PaymentID, Amount, ServiceCharge, Total, ReservationID (FK), CustomerID (FK).
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
-
-### Assumptions
-- 
-- 
-- 
-
----
-
-## Instructions for Students
-
-1. Complete **all three scenarios** (A, B, C).  
-2. Identify entities, relationships, and attributes for each.  
-3. Draw ER diagrams using **draw.io / diagrams.net** or hand-drawn & scanned.  
-4. Fill in all tables and assumptions for each scenario.  
-5. Export the completed Markdown (with diagrams) as **a single PDF**
+Customer – Reservation
+A customer makes reservations.
+Cardinality: One customer can make many reservations, but each reservation belongs to one customer (1:M).
+Reservation – Table
+Each reservation is assigned to a table.
+Cardinality: One reservation is assigned to one table, and a table can host many reservations over time (1:N).
+Reservation – Waiter
+Each reservation is served by a waiter.
+Cardinality: One reservation is served by one waiter, and a waiter can serve many reservations (1:N).
+Reservation – Bill
+Each reservation generates a bill.
+Cardinality: One reservation generates exactly one bill, and each bill corresponds to one reservation (1:1).
+Customer – Bill
+A customer makes payments (bills).
+Cardinality: One customer can have many bills, and each bill is linked to one customer (1:N).
