@@ -104,16 +104,15 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
---
--- Paste Question 1 here
+<img width="1408" height="651" alt="image" src="https://github.com/user-attachments/assets/ba16d707-60cb-40dc-99ba-ff4a5945fbd8" />
 
-```sql
--- Paste your SQL code below for Question 1
+```
+update Employees set salary=salary*2 where department_id=20 and job_id like "%MAN";
 ```
 
 **Output:**
+<img width="1196" height="333" alt="image" src="https://github.com/user-attachments/assets/d07db4a9-0ed4-4118-be01-dda8a40484cf" />
 
-![Output1](output.png)
 
 **Question 2**
 ---
