@@ -1,6 +1,7 @@
 # ER Diagram Workshop – Submission Template
 
 ## Objective
+
 To understand and apply ER modeling concepts by creating ER diagrams for real-world applications.
 
 ## Purpose
@@ -22,31 +23,33 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 - Payments tracked for memberships and sessions.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_fitness.png)
+
+<img width="1126" height="532" alt="image" src="https://github.com/user-attachments/assets/6dd67093-f638-4e03-a7a5-56b7975b1d28" />
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| Entity | Attributes |
+|--------|--------------------|
+| Member  | Name,MemberID,PhoneNo,Membership Type,Starting Date,Ending Date|
+|Program| ProgramID, Program Name |
+|Trainer|TrainerID , Name,Phone No,Specialization|
+|Session|Session ID,Member ID,Fee,TrainerID,Duration|
+|Attendance| AttendanceID,SessionID,MemberID,Status,Date|
+|Payment|PaymentID,MemberID,Amount,Payment Date,Payment Type|
 
 ### Relationships and Constraints
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
-
+|Member-Payment|1:N|Partial|A member can make multiple payments; each payment belongs to one member.|
+|Member → Program|N:M|Partial |A member can join many programmes; a programme may include many members.|
+|Trainer → Program|1:N|Partial | Each trainer conducts multiple programmes, but every programme is handled by one trainer.|
+|Member/Trainer → Session | N:M | Partial | Sessions are attended by multiple members and managed by multiple trainers.|
 ### Assumptions
-- 
-- 
-- 
+- The fitness club assumes that all member information provided during registration is accurate and updated.
+- The club assumes that sufficient trainers, equipment, and facilities are always available for scheduled activities.
+- The system assumes that staff have continuous access to the management software and required technology.
 
 ---
 
@@ -64,31 +67,35 @@ The Central Library wants to manage book lending and cultural events.
 - Overdue fines apply for late returns.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_library.png)
+
+<img width="527" height="293" alt="image" src="https://github.com/user-attachments/assets/37eb7c14-a797-4c6b-93e9-0dfea429c425" />
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| Entity | Attributes |
+|--------|--------------------|
+|Room Booking|BookingID,Date,RoomID,MemberID|
+|Room|RoomID,Room Name,Type,Capacity|
+|Member|Name,Membership Date,Phone No,MemberID|
+|Event Registration |MemberID,EventID,Reg_ID|
+|Event|EventID,Date,Name|
+|Loan|Loan_date,DueDate,Return Date,LoanID|
+|Book|BookID,Title,Author|
 
 ### Relationships and Constraints
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+|Member → Loan|1:N|Partial|A member can receive many loans; each loan is issued to one member.|
+|Event → Room|M:N|Partial|An event can be held in multiple rooms; each room can host multiple events.|
+|Member → Event|M:N|Partial|A member can register for multiple events; an event can have many members.|
+|Author → Event|M:N|Partial|Speakers or authors can join multiple events; each event can feature many speakers. 
 
 ### Assumptions
-- 
-- 
-- 
+- The library assumes that members provide valid and accurate personal details during registration.
+- The system assumes that all books, event resources, and facilities are properly catalogued and available as recorded.
+- The library assumes that users return borrowed books on or before the due date to maintain smooth lending operations.
 
 ---
 
@@ -106,38 +113,39 @@ A popular restaurant wants to manage reservations, orders, and billing.
 - Waiters assigned to serve reservations.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_restaurant.png)
+
+<img width="529" height="344" alt="image" src="https://github.com/user-attachments/assets/1d361208-02a6-42b9-b154-2c7950f3ca28" />
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| Entity | Attributes|
+|--------|--------------------|
+|Customers|CustomerID,Phone No,Email,Name|
+|Reservation|ReservationID,No_Of_Guest,Time,Date|
+|Bill|Bill_ID,Amount|
+|Order|Time,Date,OrderID|
+|Dish|Dish_ID,Name,Price|
+|Category|Category_ID,Name|
+|Waiters|Name,Phone No,Waiter ID|
+|Table|Table No,Capacity,Table_ID|
 
 ### Relationships and Constraints
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+|Customer → Reservation|1:N|Partial|Each customer can make many reservations, and each reservation belongs to one customer.|
+|Reservation → Table|1:N|Partial|A reservation may include one or more tables; each table may be reserved multiple times.|
+|Category → Dish|1:N|Partial|A category can contain many dishes; each dish belongs to one category.|
+|Reservation → Bill|1:1|Partial|Every reservation generates one bill.|
 
 ### Assumptions
-- 
-- 
-- 
+- The restaurant assumes customers provide valid and accurate details when making reservations.
+- The system assumes that tables, staff, and menu items are available as displayed during booking and ordering.
+- The restaurant assumes customers will arrive on time and follow reservation and ordering policies.
 
 ---
 
-## Instructions for Students
+## RESULT : 
 
-1. Complete **all three scenarios** (A, B, C).  
-2. Identify entities, relationships, and attributes for each.  
-3. Draw ER diagrams using **draw.io / diagrams.net** or hand-drawn & scanned.  
-4. Fill in all tables and assumptions for each scenario.  
-5. Export the completed Markdown (with diagrams) as **a single PDF**
+The combined ER diagram effectively represents entities and relationships of the restaurant, fitness club, and library systems. It clearly captures interactions like reservations, sessions, and book lending, ensuring smooth data flow and efficient system management.
