@@ -105,123 +105,205 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Create a table named Employees with the following columns:
 
+EmployeeID as INTEGER
+FirstName as TEXT
+LastName as TEXT
+HireDate as DATE
 ```sql
--- Paste your SQL code below for Question 1
+CREATE TABLE Employees
+(
+EmployeeID INTEGER,
+FirstName TEXT,
+LastName TEXT,
+HireDate DATE
+);
 ```
 
 **Output:**
+<img width="1225" height="379" alt="image" src="https://github.com/user-attachments/assets/8d5df310-3892-4346-ae9e-fb531442b211" />
 
-![Output1](output.png)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Insert all employees from Former_employees into Employee
+
+Table attributes are EmployeeID, Name, Department, Salary
 
 ```sql
--- Paste your SQL code below for Question 2
+INSERT INTO Employee select EmployeeID,Name,Department,Salary from Former_employees
 ```
 
 **Output:**
+<img width="1218" height="336" alt="image" src="https://github.com/user-attachments/assets/bd10f719-d37f-435e-889f-30ac3fa68bfc" />
 
-![Output2](output.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+Create a table named ProjectAssignments with the following constraints:
+AssignmentID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+AssignmentDate as DATE should be NOT NULL.
 
 ```sql
--- Paste your SQL code below for Question 3
+CREATE TABLE ProjectAssignments
+(
+AssignmentID INTEGER primary key,
+EmployeeID INTEGER,
+ProjectID INTEGER,
+AssignmentDate DATE not null,
+foreign key (EmployeeID) references Employees(EmployeeID),
+foreign key (ProjectID) references Projects(ProjectID)
+);
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1223" height="343" alt="image" src="https://github.com/user-attachments/assets/5817421b-2d9d-42a3-906c-bc5a75e75722" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Insert a new product with ProductID 101, Name Laptop, Category Electronics, Price 1500, and Stock 50 into the Products table.
 
 ```sql
--- Paste your SQL code below for Question 4
+INSERT INTO Products(ProductID,Name,Category,Price,Stock) Values(101,"Laptop","Electronics",1500,50)
 ```
 
 **Output:**
+<img width="1208" height="314" alt="image" src="https://github.com/user-attachments/assets/a9b10893-6c94-4648-a2f3-18652c9d367d" />
 
-![Output4](output.png)
 
 **Question 5**
 ---
--- Paste Question 5 here
-
+Create a table named Products with the following constraints:
+ProductID as INTEGER should be the primary key.
+ProductName as TEXT should be unique and not NULL.
+Price as REAL should be greater than 0.
+StockQuantity as INTEGER should be non-negative.
 ```sql
--- Paste your SQL code below for Question 5
+CREATE TABLE Products
+(
+ProductID INT primary key,
+ProductName TEXT UNIQUE not null,
+Price REAL check(Price >0),
+StockQuantity INT check(StockQuantity >0)
+);
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1213" height="355" alt="image" src="https://github.com/user-attachments/assets/039a871f-c2e5-4ca6-a39a-e40a0f47b511" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+In the Student_details table, insert a student record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
+
+RollNo      Name            Gender      Subject      MARKS
+----------  ------------    ----------  ----------   ----------
+205         Olivia Green    F
+207         Liam Smith      M           Mathematics  85
+208         Sophia Johnson  F           Science
 
 ```sql
--- Paste your SQL code below for Question 6
+INSERT INTO Student_details(RollNO,Name,Gender,Subject,Marks)
+VALUES(205,"Olivia Green","F",null,null),
+(207,"Liam Smith","M","Mathematics",85),
+(208,"Sophia Johnson","F","Science",null)
 ```
 
 **Output:**
+<img width="1214" height="352" alt="image" src="https://github.com/user-attachments/assets/30a2d73c-430e-4c79-bea0-d21236b6f86c" />
 
-![Output6](output.png)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Create a table named Employees with the following constraints:
 
+EmployeeID should be the primary key.
+FirstName and LastName should be NOT NULL.
+Email should be unique.
+Salary should be greater than 0.
+DepartmentID should be a foreign key referencing the Departments table.
 ```sql
--- Paste your SQL code below for Question 7
+CREATE TABLE Employees
+(
+EmployeeID INT primary key,
+FirstName TEXT not null,
+lastName TEXT not null,
+Email TEXT UNIQUE,
+Salary INT check(Salary>0),
+DepartmentID INT,
+foreign key (DepartmentID) references Departments(DepartmentID)
+);
 ```
 
 **Output:**
+<img width="1213" height="494" alt="image" src="https://github.com/user-attachments/assets/df9f9a70-947c-450b-bc54-0b707806067c" />
 
-![Output7](output.png)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write a SQL Query  to change the name of attribute "name" to "first_name"  and add mobilenumber as number ,DOB as Date in the table Companies. 
 
 ```sql
--- Paste your SQL code below for Question 8
+alter table Companies
+rename name to first_name;
+alter table Companies
+add mobilenumber number;
+alter table Companies
+add DOB Date;
 ```
 
 **Output:**
+<img width="1222" height="462" alt="image" src="https://github.com/user-attachments/assets/eecb45ad-a2ef-4bc5-948d-95914094d866" />
 
-![Output8](output.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write an SQL query to add two new columns, first_name and last_name, to the table employee. Both columns should have a data type of varchar(50).
 
 ```sql
--- Paste your SQL code below for Question 9
+ALTER TABLE employee
+add first_name varchar(50);
+ALTER TABLE employee
+add last_name varchar(50);
 ```
 
 **Output:**
+<img width="1221" height="381" alt="image" src="https://github.com/user-attachments/assets/50d840fe-667f-4a10-ba13-d7470253155f" />
 
-![Output9](output.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+Create a table named Invoices with the following constraints:
+
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+DueDate as DATE should be greater than the InvoiceDate.
+Amount as REAL should be greater than 0.
 
 ```sql
--- Paste your SQL code below for Question 10
+create table Invoices
+(
+InvoiceID INT primary key,
+InvoiceDate Date,
+DueDate DATE check(DueDate>InvoiceDate),
+Amount REAL check(Amount>0)
+);
 ```
-
 **Output:**
+<img width="1218" height="350" alt="image" src="https://github.com/user-attachments/assets/3a0a315e-dd6a-4f01-b1e2-3583d4cc4b46" />
 
-![Output10](output.png)
+**GRADE:**
+<img width="770" height="606" alt="image" src="https://github.com/user-attachments/assets/eb9dff6e-fafa-402f-8b9c-b54ad5b0f7c2" />
+
 
 
 ## RESULT
