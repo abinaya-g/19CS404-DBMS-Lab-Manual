@@ -63,6 +63,9 @@ Key Differences:
 **Expected Output:**  
 Square of 6 is 36
 
+<img width="925" height="920" alt="image" src="https://github.com/user-attachments/assets/8f17fdfa-3839-4952-acf9-3b64265934d3" />
+
+
 ---
 
 ## 2. Write a PL/SQL Function to Return the Factorial of a Number
@@ -77,6 +80,9 @@ Square of 6 is 36
 **Expected Output:**  
 Factorial of 5 is 120
 
+<img width="929" height="904" alt="image" src="https://github.com/user-attachments/assets/c01d231f-0758-49df-a219-c3f3d109bae8" />
+
+
 ---
 
 ## 3. Write a PL/SQL Procedure to Check Whether a Number is Even or Odd
@@ -89,6 +95,9 @@ Factorial of 5 is 120
 
 **Expected Output:**  
 12 is Even
+
+<img width="927" height="903" alt="image" src="https://github.com/user-attachments/assets/fd226bee-1046-49a3-a781-8347f3c76dba" />
+
 
 ---
 
@@ -103,6 +112,9 @@ Factorial of 5 is 120
 
 **Expected Output:**  
 Reversed number of 1234 is 4321
+
+<img width="924" height="904" alt="image" src="https://github.com/user-attachments/assets/be38d540-a3bd-4ff6-a7b5-20b8654469ed" />
+
 
 ---
 
@@ -121,6 +133,9 @@ Multiplication table of 5:
 5 x 3 = 15  
 ...  
 5 x 10 = 50
+
+<img width="947" height="900" alt="image" src="https://github.com/user-attachments/assets/27ebd055-4d13-4f01-86aa-c37a9c68c8e8" />
+
 
 ## RESULT
 Thus, the PL/SQL programs using procedures and functions were written, compiled, and executed successfully.
