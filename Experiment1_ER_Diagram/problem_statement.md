@@ -128,9 +128,9 @@ A popular restaurant wants to manage reservations, orders, and billing.
 |              |            |               |       |
 
 ### Assumptions
-- 
-- 
-- 
+- A customer may or may not make a reservation before ordering.
+- Each order contains one dish per entry (multiple dishes = multiple order entries).
+- Billing is done per reservation, not per individual order.
 
 ---
 
