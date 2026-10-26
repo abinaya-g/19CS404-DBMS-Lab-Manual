@@ -139,9 +139,9 @@ A popular restaurant wants to manage reservations, orders, and billing.
 |Reservation–Waiter	|1:1|	Partial|	Assigned waiter|
 
 ### Assumptions
-Each reservation occupies one table only.
-Bills always generated per reservation.
-Service charges fixed percentage (not modeled).
+  Each reservation occupies one table only.
+  Bills always generated per reservation.
+  Service charges fixed percentage (not modeled).
 ---
 
 ## Instructions for Students
