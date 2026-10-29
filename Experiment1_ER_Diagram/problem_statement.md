@@ -27,13 +27,13 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| Entity        |            Attributes (PK, FK)                  | Notes |
+|---------------|-------------------------------------------------|-------|
+|member         |member_id (PK), name, membership_type, start_date|       |
+|program        |program_id (PK), program_name, description       |       |
+|trainer        |trainer_id (PK), trainer_name, specialization    |       |
+|Member_Program |                                                 |       |
+|Program_Trainer|                                                 |       |
 
 ### Relationships and Constraints
 
